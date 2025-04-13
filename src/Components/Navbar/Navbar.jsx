@@ -13,7 +13,7 @@ export default function Navbar() {
       </div>
       
         <div className='bg-gradient-to-r from-red-600 to-red-400 bg-clip-text'>
-            <h1 className='text-[1.6rem] italic font-bold bg-transparent'>STRIDE</h1>
+            <h1 className='text-[1.6rem] font-Anton italic bg-transparent'>STRIDE</h1>
         </div>
 
       <div className='flex items-center gap-x-5'>
