@@ -1,17 +1,13 @@
-import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export default function useFetchProduct() {
 
     const[products, setProducts] = useState([])
-    const[loading, setLoading] = useEffect(true)
+    const[loading, setLoading] = useState(true)
 
     useEffect(() => {
-
-        
-    const fetchProducts = async () =>{
-
+    const fetchProducts = async() =>{
         const options = {
             method: 'GET',
             url: 'https://shoes-collections.p.rapidapi.com/shoes',
@@ -23,7 +19,8 @@ export default function useFetchProduct() {
 
      try{
          const response = await axios.request(options)
-          setProducts(response)
+         console.log("response data :", response.data)
+          setProducts(response.data.slice(0,4))
        }
        catch(error){
         console.log("Error While fetching products". error)
@@ -31,9 +28,8 @@ export default function useFetchProduct() {
        finally{
         setLoading(false)
        } 
-
-       fetchProducts()
     }
+    fetchProducts()
     },[])
      
   return {products, loading}
